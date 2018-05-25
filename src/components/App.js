@@ -15,11 +15,12 @@ class App extends React.Component {
     }
 
     handleTermChange(term) {
-        const url = `https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.npr.org%2Frss%2Frss.php%3Fid%3D1001%26searchTerm%3D${term.replace(/\s/g, '')}`;
+        
+const url = `https://newsapi.org/v2/everything?q=${term.replace(/\s/g, '&')}?&sortBy=publishedAt&apiKey=24b838b1e8844480bf9c143972240718`;
 
         request.get(url, (err, res) => {
-            this.setState({ data: res.body.items });
-            //console.log(url_feedlyOath);
+            this.setState({ data: res.body.articles });
+            console.log(res.body.articles);
         });
     }
 

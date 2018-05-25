@@ -5,6 +5,7 @@ class SearchBar extends React.Component {
         super();
         this.state = { term: '' };
     }
+    
 
     onInputChange(term) {
         this.setState({term});
